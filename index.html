@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/books.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="./src/main.ts"></script>
+    <title>Library Tracker</title>
+  </head>
+  <body class="font-mono text-base">
+    <header class="flex h-24 items-center justify-end gap-4 bg-indigo-100 pe-4">
+      <img src="/assets/books-2.png" alt="" />
+      <h1 class="text-4xl font-bold text-indigo-400">Library Tracker</h1>
+      <div class="hidden sm:block">
+        <button id="about-btn"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
+        >
+          About
+        </button>
+        <button id="made-btn"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
+        >
+          Made With
+        </button>
+      </div>
+    </header>
+
+    <!-- modals -->
+    <dialog open id="about-modal" class="bg-red-100">
+        <p>Testing if this works</p>
+    </dialog>
+  </body>
+</html>
