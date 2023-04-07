@@ -13,12 +13,14 @@
       <img src="/assets/books-2.png" alt="" />
       <h1 class="text-4xl font-bold text-indigo-400">Library Tracker</h1>
       <div class="hidden sm:block">
-        <button id="about-btn"
+        <button
+          id="about-btn"
           class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
         >
           About
         </button>
-        <button id="made-btn"
+        <button
+          id="made-btn"
           class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
         >
           Made With
@@ -27,8 +29,29 @@
     </header>
 
     <!-- modals -->
-    <dialog open id="about-modal" class="bg-red-100">
-        <p>Testing if this works</p>
+    <dialog
+      id="about-modal"
+      class="relative max-w-lg rounded-lg border p-6 shadow-xl"
+    >
+      <button id="about-close"
+        class="absolute h-8 w-8 rounded-full right-4 top-4 bg-slate-200 text-xl font-bold hover:bg-slate-300"
+      >
+        X
+      </button>
+      <div class="grid grid-flow-row auto-rows-min gap-2">
+        <div>
+          <h3 class="text-center text-3xl font-bold">Library Tracker</h3>
+          <p class="text-center text-sm font-light text-slate-800">
+            A learning project from the curriculum of The Odin Project.
+          </p>
+        </div>
+        <p class="text-center">
+          Library Tracker is a simple reading list tracker. The app provides a
+          simple way to create a quick reading list! At the current moment the
+          application only uses local storage, so please look forward for the
+          implementation of a new storage feature.
+        </p>
+      </div>
     </dialog>
   </body>
 </html>

@@ -1,10 +1,9 @@
 export function setupModal(
-  button: HTMLButtonElement | null,
-  modal: HTMLDialogElement | null,
-  type: "open" | "close"
+    openButton: HTMLButtonElement | null,
+    closeButton: HTMLButtonElement | null,
+    modal: HTMLDialogElement | null
 ) {
-  if (button === null || modal === null) return;
-  type === "open"
-    ? button.addEventListener("click", () => modal.showModal())
-    : button.addEventListener("click", () => modal.close());
+    if (openButton === null || closeButton === null || modal === null) return;
+    openButton.addEventListener("click", () => modal.showModal());
+    closeButton.addEventListener("click", () => modal.close());
 }
