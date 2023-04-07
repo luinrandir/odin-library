@@ -1,6 +1,28 @@
-import { setupModal } from "./modal";
+import { setupModal, toggleBurger } from "./modal";
 setupModal(
     document.querySelector<HTMLButtonElement>("#about-btn"),
     document.querySelector<HTMLButtonElement>("#about-close"),
     document.querySelector<HTMLDialogElement>("#about-modal")
+);
+
+setupModal(
+    document.querySelector<HTMLButtonElement>("#about-btn-media"),
+    document.querySelector<HTMLButtonElement>("#about-close"),
+    document.querySelector<HTMLDialogElement>("#about-modal")
+);
+
+setupModal(
+    document.querySelector<HTMLButtonElement>("#made-btn"),
+    document.querySelector<HTMLButtonElement>("#made-close"),
+    document.querySelector<HTMLDialogElement>("#made-modal")
+);
+
+setupModal(
+    document.querySelector<HTMLButtonElement>("#made-btn-media"),
+    document.querySelector<HTMLButtonElement>("#made-close"),
+    document.querySelector<HTMLDialogElement>("#made-modal")
+);
+toggleBurger(
+    document.querySelector<HTMLDivElement>("#burger"),
+    document.querySelector<HTMLElement>("#menu")
 );

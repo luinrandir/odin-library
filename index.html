@@ -4,14 +4,24 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/books.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
     <link rel="stylesheet" href="./src/style.css" />
     <script type="module" src="./src/main.ts"></script>
     <title>Library Tracker</title>
   </head>
   <body class="font-mono text-base">
-    <header class="flex h-24 items-center justify-end gap-4 bg-indigo-100 pe-4">
-      <img src="/assets/books-2.png" alt="" />
-      <h1 class="text-4xl font-bold text-indigo-400">Library Tracker</h1>
+    <header
+      class="flex h-24 items-center justify-between gap-4 bg-indigo-100 pe-4 sm:justify-end"
+    >
+      <div class="flex items-center gap-4">
+        <img src="/assets/books-2.png" alt="" />
+        <h1 class="text-2xl font-bold text-indigo-400 sm:text-4xl">
+          Library Tracker
+        </h1>
+      </div>
       <div class="hidden sm:block">
         <button
           id="about-btn"
@@ -23,34 +33,74 @@
           id="made-btn"
           class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
         >
-          Made With
+          Crafted With
         </button>
       </div>
+      <div id="burger" class="space-y-2 sm:hidden">
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+      </div>
     </header>
-
+    <nav id="menu" class="collapse bg-indigo-100 pb-4 sm:hidden">
+      <div class="grid auto-cols-max justify-center gap-4">
+        <button
+          id="about-btn-media"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
+        >
+          About
+        </button>
+        <button
+          id="made-btn-media"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
+        >
+          Crafted With
+        </button>
+      </div>
+    </nav>
     <!-- modals -->
     <dialog
       id="about-modal"
-      class="relative max-w-lg rounded-lg border p-6 shadow-xl"
+      class="relative max-w-xs sm:max-w-lg rounded-lg border p-6 shadow-xl"
     >
-      <button id="about-close"
-        class="absolute h-8 w-8 rounded-full right-4 top-4 bg-slate-200 text-xl font-bold hover:bg-slate-300"
+      <button
+        id="about-close"
+        class="absolute right-1.5 top-1.5 sm:right-4 sm:top-4 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300"
       >
         X
       </button>
       <div class="grid grid-flow-row auto-rows-min gap-2">
         <div>
-          <h3 class="text-center text-3xl font-bold">Library Tracker</h3>
-          <p class="text-center text-sm font-light text-slate-800">
+          <h3 class="text-center text-2xl sm:text-3xl font-bold">Library Tracker</h3>
+          <p class="text-center text-xs font-light text-slate-800">
             A learning project from the curriculum of The Odin Project.
           </p>
         </div>
-        <p class="text-center">
+        <p class="text-center text-sm sm:text-base">
           Library Tracker is a simple reading list tracker. The app provides a
           simple way to create a quick reading list! At the current moment the
           application only uses local storage, so please look forward for the
           implementation of a new storage feature.
         </p>
+      </div>
+    </dialog>
+    <dialog
+      id="made-modal"
+      class="relative max-w-lg rounded-lg border p-6 shadow-xl"
+    >
+      <button
+        id="made-close"
+        class="absolute right-4 top-4 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300"
+      >
+        X
+      </button>
+      <div class="grid grid-flow-row auto-rows-min gap-2">
+        <h3 class="text-center text-3xl font-bold">Crafted With</h3>
+        <div class="flex gap-4 justify-center items-center">
+            <i class="devicon-html5-plain-wordmark colored text-8xl"></i>
+            <i class="devicon-tailwindcss-plain colored text-8xl"></i>
+            <i class="devicon-typescript-plain colored text-8xl"></i>
+        </div>
       </div>
     </dialog>
   </body>
