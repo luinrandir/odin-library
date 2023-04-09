@@ -12,9 +12,9 @@
     <script type="module" src="./src/main.ts"></script>
     <title>Library Tracker</title>
   </head>
-  <body class="font-roboto text-base">
+  <body class="bg-slate-200 font-roboto text-base">
     <header
-      class="flex h-24 items-center justify-between gap-4 bg-indigo-100 pe-4 sm:justify-end"
+      class="flex h-24 items-center justify-between gap-4 rounded-b bg-indigo-100 pe-4 shadow-xl sm:justify-end"
     >
       <div class="flex items-center gap-4">
         <img src="/assets/books-2.png" alt="" />
@@ -58,20 +58,96 @@
         </button>
       </div>
     </nav>
+    <!-- main content -->
+    <main class="grid h-screen place-content-center">
+      <table class="max-w-full table-auto ">
+        <thead class="border-b-2 bg-indigo-400 font-bold text-white shadow-md">
+          <tr>
+            <th class="p-2 text-left text-sm font-semibold tracking-wide">
+              Title
+            </th>
+            <th class="p-2 text-left text-sm font-semibold tracking-wide">
+              Author
+            </th>
+            <th class="p-2 text-left text-sm font-semibold tracking-wide">
+              Genre
+            </th>
+            <th class="p-2 text-left text-sm font-semibold tracking-wide">
+              Status
+            </th>
+            <th class="p-2 text-left text-sm font-semibold tracking-wide">
+              Delete
+            </th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-indigo-800">
+          <tr class="odd:bg-white">
+            <td class="p-2 text-sm">Slaughter House Five</td>
+            <td class="p-2 text-sm">Kurt Vonnegut</td>
+            <td class="p-2 text-sm">Fiction</td>
+            <td class="p-2 text-sm">Read</td>
+            <td class="p-2 text-sm">Delete</td>
+          </tr>
+          <tr class="odd:bg-white">
+            <td class="p-2 text-sm">1984</td>
+            <td class="p-2 text-sm">George Orwell</td>
+            <td class="p-2 text-sm">Fiction</td>
+            <td class="p-2 text-sm">Not Read</td>
+            <td class="p-2 text-sm">Delete</td>
+          </tr>
+          <tr>
+            <td class="p-2 text-sm">Goodnight Pun Pun</td>
+            <td class="p-2 text-sm">Inio Asano</td>
+            <td class="p-2 text-sm">Manga</td>
+            <td class="p-2 text-sm">Read</td>
+            <td class="p-2 text-sm">Delete</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <!--
+        <main class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center p-4">
+        <div class="sm:col-span-2">
+        <h2 class="text-2xl text-indigo-400 font-bold">Reading List</h2>
+        </div>
+        <aside class="border-8 border-black sm:max-w-xs">
+        <form class="grid bg-indigo-100 gap-4 p-4 border  rounded-lg shadow-lg">
+        <section>
+        <h3>Add a book</h3>
+        </section>
+        <section class="grid grid-cols-1">
+        <label for="title">Title</label>
+        <input type="text" name="title" value="Title of Book" />
+        <label for="author">Author</label>
+        <input type="text" name="author" value="Author" />
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" value="Genre" />
+        <label for="read">Read?</label>
+        <input type="checkbox" name="read" />
+        </section>
+        <button type="submit">Add book</button>
+        </form>
+        </aside>
+        <div>
+        </div>
+        </main>
+        -->
     <!-- modals -->
     <dialog
       id="about-modal"
-      class="relative max-w-xs sm:max-w-lg rounded-lg border p-6 shadow-xl"
+      class="relative max-w-xs rounded-lg border p-6 shadow-xl sm:max-w-lg"
     >
       <button
         id="about-close"
-        class="absolute right-1.5 top-1.5 sm:right-4 sm:top-4 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300"
+        class="absolute right-1.5 top-1.5 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300 sm:right-4 sm:top-4"
       >
         X
       </button>
       <div class="grid grid-flow-row auto-rows-min gap-2">
         <div>
-          <h3 class="text-center text-2xl sm:text-3xl font-bold">Library Tracker</h3>
+          <h3 class="text-center text-2xl font-bold sm:text-3xl">
+            Library Tracker
+          </h3>
           <p class="text-center text-xs font-light text-slate-800">
             A learning project from the curriculum of The Odin Project.
           </p>
@@ -96,10 +172,10 @@
       </button>
       <div class="grid grid-flow-row auto-rows-min gap-2">
         <h3 class="text-center text-3xl font-bold">Crafted With</h3>
-        <div class="flex gap-4 justify-center items-center">
-            <i class="devicon-html5-plain-wordmark colored text-8xl"></i>
-            <i class="devicon-tailwindcss-plain colored text-8xl"></i>
-            <i class="devicon-typescript-plain colored text-8xl"></i>
+        <div class="flex items-center justify-center gap-4">
+          <i class="devicon-html5-plain-wordmark colored text-8xl"></i>
+          <i class="devicon-tailwindcss-plain colored text-8xl"></i>
+          <i class="devicon-typescript-plain colored text-8xl"></i>
         </div>
       </div>
     </dialog>
