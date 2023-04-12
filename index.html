@@ -12,7 +12,7 @@
     <script type="module" src="./src/main.ts"></script>
     <title>Library Tracker</title>
   </head>
-  <body class="bg-slate-200 font-roboto text-base">
+  <body class="font-roboto text-base">
     <header
       class="flex h-24 items-center justify-between gap-4 rounded-b bg-indigo-100 pe-4 shadow-xl sm:justify-end"
     >
@@ -60,50 +60,26 @@
     </nav>
     <!-- main content -->
     <main class="grid h-screen place-content-center">
-      <table class="max-w-full table-auto ">
-        <thead class="border-b-2 bg-indigo-400 font-bold text-white shadow-md">
-          <tr>
-            <th class="p-2 text-left text-sm font-semibold tracking-wide">
-              Title
-            </th>
-            <th class="p-2 text-left text-sm font-semibold tracking-wide">
-              Author
-            </th>
-            <th class="p-2 text-left text-sm font-semibold tracking-wide">
-              Genre
-            </th>
-            <th class="p-2 text-left text-sm font-semibold tracking-wide">
-              Status
-            </th>
-            <th class="p-2 text-left text-sm font-semibold tracking-wide">
-              Delete
-            </th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-indigo-800">
-          <tr class="odd:bg-white">
-            <td class="p-2 text-sm">Slaughter House Five</td>
-            <td class="p-2 text-sm">Kurt Vonnegut</td>
-            <td class="p-2 text-sm">Fiction</td>
-            <td class="p-2 text-sm">Read</td>
-            <td class="p-2 text-sm">Delete</td>
-          </tr>
-          <tr class="odd:bg-white">
-            <td class="p-2 text-sm">1984</td>
-            <td class="p-2 text-sm">George Orwell</td>
-            <td class="p-2 text-sm">Fiction</td>
-            <td class="p-2 text-sm">Not Read</td>
-            <td class="p-2 text-sm">Delete</td>
-          </tr>
-          <tr>
-            <td class="p-2 text-sm">Goodnight Pun Pun</td>
-            <td class="p-2 text-sm">Inio Asano</td>
-            <td class="p-2 text-sm">Manga</td>
-            <td class="p-2 text-sm">Read</td>
-            <td class="p-2 text-sm">Delete</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-hidden rounded-lg border shadow-lg">
+        <table id="list" class="max-w-full text-sm">
+          <thead
+            class="border-b-2 bg-indigo-400 text-white underline shadow-md"
+          >
+            <tr>
+              <th class="w-80 p-2 text-left font-semibold tracking-wide">
+                Title
+              </th>
+              <th class="w-40 p-2 text-left font-semibold tracking-wide">
+                Author
+              </th>
+              <th class="p-2 text-left font-semibold tracking-wide">Genre</th>
+              <th class="p-2 text-left font-semibold tracking-wide">Read</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-indigo-800"></tbody>
+        </table>
+      </div>
     </main>
     <!--
         <main class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center p-4">
