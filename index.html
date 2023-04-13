@@ -12,7 +12,7 @@
     <script type="module" src="./src/main.ts"></script>
     <title>Library Tracker</title>
   </head>
-  <body class="font-roboto text-base">
+  <body class="font-roboto text-base text-slate-600">
     <header
       class="flex h-24 items-center justify-between gap-4 rounded-b bg-indigo-100 pe-4 shadow-xl sm:justify-end"
     >
@@ -59,9 +59,70 @@
       </div>
     </nav>
     <!-- main content -->
-    <main class="grid h-screen place-content-center">
+    <main class="grid justify-center gap-4 sm:m-8 sm:p-8">
+      <div class="text-center">
+        <h2 class="text-4xl font-medium text-indigo-400">Library Tracker</h2>
+        <p class="p-4 text-sm">
+          A simple reading list tracker created as a project for The Odin
+          Project.<br />
+          Use the form below to add a book to the list.
+        </p>
+      </div>
+      <div>
+        <form class="grid gap-4 rounded-lg p-4 shadow-lg">
+          <section>
+            <h3 class="text-2xl font-medium text-indigo-400">Add a book</h3>
+          </section>
+          <section class="grid gap-4 lg:flex lg:items-center lg:gap-4">
+            <div>
+              <label class="text-lg" for="title">Title</label>
+              <input
+                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                type="text"
+                name="title"
+                placeholder="Goodnight Pun Pun"
+              />
+            </div>
+            <div>
+              <label class="text-lg" for="author">Author</label>
+              <input
+                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                type="text"
+                name="author"
+                placeholder="Inio Asano"
+              />
+            </div>
+            <div>
+              <label class="text-lg" for="genre">Genre</label>
+              <input
+                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                type="text"
+                name="genre"
+                placeholder="Manga"
+              />
+            </div>
+            <div>
+              <label class="text-lg" for="read">Read?</label>
+              <select
+                id="read"
+                name="read"
+                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+              >
+                <option value="true">Read</option>
+                <option value="false" selected>Not Read</option>
+              </select>
+            </div>
+          </section>
+          <button
+            type="submit"
+            class="w-max rounded-full border-2 border-indigo-400 px-3 py-1 hover:bg-indigo-400 hover:text-white"
+          >
+            Add book
+          </button>
+        </form>
+      </div>
       <div class="overflow-hidden rounded-lg border shadow-lg">
-        <table id="list" class="max-w-full text-sm">
+        <table id="list" class="w-full text-sm text-black">
           <thead
             class="border-b-2 bg-indigo-400 text-white underline shadow-md"
           >
@@ -81,33 +142,6 @@
         </table>
       </div>
     </main>
-    <!--
-        <main class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center p-4">
-        <div class="sm:col-span-2">
-        <h2 class="text-2xl text-indigo-400 font-bold">Reading List</h2>
-        </div>
-        <aside class="border-8 border-black sm:max-w-xs">
-        <form class="grid bg-indigo-100 gap-4 p-4 border  rounded-lg shadow-lg">
-        <section>
-        <h3>Add a book</h3>
-        </section>
-        <section class="grid grid-cols-1">
-        <label for="title">Title</label>
-        <input type="text" name="title" value="Title of Book" />
-        <label for="author">Author</label>
-        <input type="text" name="author" value="Author" />
-        <label for="genre">Genre</label>
-        <input type="text" name="genre" value="Genre" />
-        <label for="read">Read?</label>
-        <input type="checkbox" name="read" />
-        </section>
-        <button type="submit">Add book</button>
-        </form>
-        </aside>
-        <div>
-        </div>
-        </main>
-        -->
     <!-- modals -->
     <dialog
       id="about-modal"
