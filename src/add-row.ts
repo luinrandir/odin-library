@@ -5,7 +5,6 @@ const rowStyling: string[] = [
   "even:bg-indigo-100",
   "odd:hover:bg-slate-200",
   "even:hover:bg-indigo-200",
-  "peer-checked:text-red-500",
 ];
 const cellStyling: string[] = ["p-2"];
 const buttonStyling: string[] = [
