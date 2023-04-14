@@ -1,12 +1,36 @@
 import { setupModal, toggleBurger } from "./modal";
 import { Library } from "./library";
 
-const formInput = document.querySelector<HTMLFormElement>("#book-entry");
-const bookTitle = document.querySelector<HTMLInputElement>("#title")!;
-const bookAuthor = document.querySelector<HTMLInputElement>("#author")!;
-const bookGenre = document.querySelector<HTMLInputElement>("#genre")!;
-const bookRead = document.querySelector<HTMLInputElement>("#read")!;
+// Theme
+const themeSelector = document.querySelector<HTMLSpanElement>("#theme")!;
 
+if (
+  localStorage.getItem("theme") === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+  themeSelector.innerText = "light_mode";
+  localStorage.setItem("theme", "dark");
+} else {
+  document.documentElement.classList.remove("dark");
+  themeSelector.innerText = "dark_mode";
+  localStorage.setItem("theme", "light");
+}
+
+themeSelector.addEventListener("click", () => {
+  if (themeSelector.innerText === "dark_mode") {
+    document.documentElement.classList.add("dark");
+    themeSelector.innerText = "light_mode";
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    themeSelector.innerText = "dark_mode";
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// Modals
 setupModal(
   document.querySelector<HTMLButtonElement>("#about-btn"),
   document.querySelector<HTMLButtonElement>("#about-close"),
@@ -35,6 +59,12 @@ toggleBurger(
   document.querySelector<HTMLElement>("#menu")
 );
 
+// Main functionality
+const formInput = document.querySelector<HTMLFormElement>("#book-entry");
+const bookTitle = document.querySelector<HTMLInputElement>("#title")!;
+const bookAuthor = document.querySelector<HTMLInputElement>("#author")!;
+const bookGenre = document.querySelector<HTMLInputElement>("#genre")!;
+const bookRead = document.querySelector<HTMLInputElement>("#read")!;
 let list = new Library(document.querySelector<HTMLTableElement>("#list")!);
 
 formInput?.addEventListener("submit", (e) => {

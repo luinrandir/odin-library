@@ -8,6 +8,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css" />
     <script type="module" src="./src/main.ts"></script>
     <title>Library Tracker</title>
@@ -19,13 +21,14 @@
       class="flex h-24 items-center justify-between gap-4 rounded-b bg-indigo-100 pe-4 shadow-xl dark:bg-indigo-800 sm:justify-end"
     >
       <div class="flex items-center gap-4">
-        <img src="/assets/books-2.png" alt="" />
+        <img src="/assets/books-2.png" alt="Stack of books" />
         <h1
           class="text-2xl font-bold text-indigo-400 dark:text-indigo-100 sm:text-4xl"
         >
           Library Tracker
         </h1>
       </div>
+      <div><span id="theme" class="material-icons-round cursor-pointer">dark_mode</span></div>
       <div class="hidden sm:block">
         <button
           id="about-btn"
@@ -150,15 +153,15 @@
             class="border-b-2 bg-indigo-400 text-white underline shadow-md dark:bg-indigo-800"
           >
             <tr>
-              <th class="w-80 p-2 text-left font-semibold tracking-wide">
+              <th scope="col" class="w-80 p-2 text-left font-semibold tracking-wide">
                 Title
               </th>
-              <th class="w-40 p-2 text-left font-semibold tracking-wide">
+              <th scope="col" class="w-40 p-2 text-left font-semibold tracking-wide">
                 Author
               </th>
-              <th class="p-2 text-left font-semibold tracking-wide">Genre</th>
-              <th class="p-2 text-left font-semibold tracking-wide">Read</th>
-              <th></th>
+              <th scope="col" class="p-2 text-left font-semibold tracking-wide">Genre</th>
+              <th scope="col" class="p-2 text-left font-semibold tracking-wide">Read</th>
+              <th scope="col" class="p-2 text-left font-semibold tracking-wide">Remove</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-indigo-800"></tbody>
