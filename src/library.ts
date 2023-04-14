@@ -1,5 +1,4 @@
 import { Book } from "./types/book";
-import booksJson from "./booklist.json";
 
 const rowStyling: string[] = [
   "odd:bg-slate-50",
