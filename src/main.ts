@@ -3,16 +3,19 @@ import { Library } from "./library";
 
 // Theme
 const themeSelector = document.querySelector<HTMLSpanElement>("#theme")!;
+const gitLink = document.querySelector<HTMLPictureElement>("picture")!;
 
 if (
   localStorage.getItem("theme") === "dark" ||
   (!("theme" in localStorage) &&
     window.matchMedia("(prefers-color-scheme: dark)").matches)
 ) {
+  gitLink.querySelector("source")!.media = "all";
   document.documentElement.classList.add("dark");
   themeSelector.innerText = "light_mode";
   localStorage.setItem("theme", "dark");
 } else {
+  gitLink.querySelector("source")!.media = "none";
   document.documentElement.classList.remove("dark");
   themeSelector.innerText = "dark_mode";
   localStorage.setItem("theme", "light");
@@ -20,10 +23,12 @@ if (
 
 themeSelector.addEventListener("click", () => {
   if (themeSelector.innerText === "dark_mode") {
+    gitLink.querySelector("source")!.media = "all";
     document.documentElement.classList.add("dark");
     themeSelector.innerText = "light_mode";
     localStorage.setItem("theme", "dark");
   } else {
+    gitLink.querySelector("source")!.media = "none";
     document.documentElement.classList.remove("dark");
     themeSelector.innerText = "dark_mode";
     localStorage.setItem("theme", "light");
