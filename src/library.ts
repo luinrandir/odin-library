@@ -7,7 +7,15 @@ const rowStyling: string[] = [
   "odd:hover:bg-slate-200",
   "even:hover:bg-indigo-200",
 ];
-const cellStyling: string[] = ["p-2"];
+const checkStyling: string[] = [
+  "rounded-full",
+  "text-green-600",
+  "w-5",
+  "h-5",
+  "focus:border-green-600",
+  "focus:ring",
+  "focus:ring-green-600",
+];
 const buttonStyling: string[] = [
   "rounded-full",
   "border-2",
@@ -25,7 +33,7 @@ export class Library {
   private _table: HTMLTableElement;
 
   constructor(table: HTMLTableElement) {
-    this._list = booksJson.books;
+    this._list = JSON.parse(localStorage.getItem("books") || "[]");
     this._table = table;
     this.render();
   }
@@ -41,6 +49,7 @@ export class Library {
       },
       0
     );
+    this.updateDatabase();
   }
   private addRow(
     body: HTMLTableSectionElement,
@@ -52,19 +61,31 @@ export class Library {
     newRow.classList.add(...rowStyling);
     newRow.id = key;
     newRow.innerHTML = `
-      <td class="${
-        book.read && "before:content-['✔'] before:pr-2 before:text-green-600"
-      } ${cellStyling.join(" ")}">${book.title}</td>
-      <td class="${cellStyling.join(" ")}">${book.author}</td>
-      <td class="${cellStyling.join(" ")}">${book.genre}</td>
-      <td class="${cellStyling.join(" ")}">${
-      book.read ? "Read" : "Not Read"
-    }</td>
-      <td class="${cellStyling.join(" ")}">
+      <td class="${book.read ? "read" : ""} p-2">${book.title}</td>
+      <td class="p-2">${book.author}</td>
+      <td class="p-2">${book.genre}</td>
+      <td class="pl-4 p-2"><input type="checkbox" data-checked=${key} class="${checkStyling.join(
+      " "
+    )}" ${book.read ? "checked" : ""}/></td>
+      <td class="p-2">
         <button type="button" data-key=${key} class="delete-row ${buttonStyling.join(
       " "
     )}">Remove</button>
       </td>`;
+    document
+      .querySelector(`[data-checked="${key}"]`)
+      ?.addEventListener("change", () => {
+        document
+          .querySelector(`[data-checked="${key}"]`)
+          ?.toggleAttribute("checked");
+        document
+          .getElementById(key)
+          ?.firstElementChild?.classList.toggle("read");
+        this._list.map((item) => {
+          if (item.title === book.title) item.read = !item.read;
+        });
+        this.updateDatabase();
+      });
     document
       .querySelector(`[data-key="${key}"]`)
       ?.addEventListener("click", () => {
@@ -84,6 +105,6 @@ export class Library {
     });
   }
   updateDatabase() {
-    console.log(this._list);
+    localStorage.setItem("books", JSON.stringify([...this._list]));
   }
 }
