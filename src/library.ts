@@ -52,7 +52,9 @@ export class Library {
     newRow.classList.add(...rowStyling);
     newRow.id = key;
     newRow.innerHTML = `
-      <td class="${cellStyling.join(" ")}">${book.title}</td>
+      <td class="${
+        book.read && "before:content-['✔'] before:pr-2 before:text-green-600"
+      } ${cellStyling.join(" ")}">${book.title}</td>
       <td class="${cellStyling.join(" ")}">${book.author}</td>
       <td class="${cellStyling.join(" ")}">${book.genre}</td>
       <td class="${cellStyling.join(" ")}">${

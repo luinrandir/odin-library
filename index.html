@@ -76,50 +76,61 @@
         </p>
       </div>
       <div>
-        <form class="grid gap-4 rounded-lg p-4 shadow-lg dark:bg-slate-900">
+        <form id="book-entry" class="grid gap-4 rounded-lg p-4 shadow-lg dark:bg-slate-900">
           <section>
             <h3 class="text-2xl font-medium text-indigo-400">Add a book</h3>
           </section>
           <section class="grid gap-4 lg:flex lg:items-center lg:gap-4">
             <div>
-              <label class="text-lg" for="title">Title</label>
+              <label class="text-lg" for="title"
+                >Title<span class="pl-2" aria-label="required">*</span></label
+              >
               <input
-                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
                 type="text"
                 name="title"
                 placeholder="Goodnight Pun Pun"
                 id="title"
+                required
               />
             </div>
             <div>
-              <label class="text-lg" for="author">Author</label>
+              <label class="text-lg" for="author"
+                >Author<span class="pl-2" aria-label="required">*</span></label
+              >
               <input
-                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
                 type="text"
                 name="author"
                 placeholder="Inio Asano"
                 id="author"
+                required
               />
             </div>
             <div>
-              <label class="text-lg" for="genre">Genre</label>
+              <label class="text-lg" for="genre"
+                >Genre<span class="pl-2" aria-label="required">*</span></label
+              >
               <input
-                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
                 type="text"
                 name="genre"
                 placeholder="Manga"
                 id="genre"
+                required
               />
             </div>
             <div>
-              <label class="text-lg" for="read">Read?</label>
+              <label class="text-lg" for="read"
+                >Read?</span></label
+              >
               <select
                 id="read"
                 name="read"
-                class="w-full rounded-md border border-indigo-100 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
               >
-                <option value="true">Read</option>
-                <option value="false" selected>Not Read</option>
+                <option value="Read">Read</option>
+                <option value="Not Read" selected>Not Read</option>
               </select>
             </div>
           </section>
