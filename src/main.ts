@@ -29,5 +29,10 @@ toggleBurger(
   document.querySelector<HTMLElement>("#menu")
 );
 
-let list = new Library();
-list.render(document.querySelector<HTMLTableElement>("#list"));
+let list = new Library(document.querySelector<HTMLTableElement>("#list")!);
+list.addBook("Bleach vol. 1", "Tite Kubo", "Manga", true);
+list.addBook("Post Office", "Charles Bukowski", "Fiction", false);
+
+function deleteBook() {
+  console.log("Working");
+}
