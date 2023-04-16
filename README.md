@@ -291,3 +291,5 @@ Here are some great resources I used for my project.
   - Where I got the awesome Dev Icons used in the project.
 - [Flaticon](https://www.flaticon.com/)
   - Where I got the book icons.
+- [VHS](https://github.com/charmbracelet/vhs)
+  - How I made that neat console GIF!
