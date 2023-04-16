@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/books.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="./src/main.ts"></script>
+    <title>Library Tracker</title>
+  </head>
+  <body
+    class="flex h-screen flex-col font-roboto text-base text-slate-600 dark:bg-slate-800 dark:text-white"
+  >
+    <header
+      class="flex h-24 items-center justify-between gap-4 rounded-b bg-indigo-100 pe-4 shadow-xl dark:bg-indigo-800 sm:justify-end"
+    >
+      <div class="flex items-center gap-4">
+        <img src="/assets/books-2.png" alt="Stack of books" />
+        <h1
+          class="text-2xl font-bold text-indigo-400 dark:text-indigo-100 sm:text-4xl"
+        >
+          Library Tracker
+        </h1>
+      </div>
+      <div>
+        <span id="theme" class="material-icons-round cursor-pointer"
+          >dark_mode</span
+        >
+      </div>
+      <div class="hidden sm:block">
+        <button
+          id="about-btn"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 font-semibold hover:bg-indigo-400 hover:text-white dark:border-indigo-500 dark:bg-indigo-500 dark:text-white dark:hover:border-indigo-300 dark:hover:bg-indigo-300"
+        >
+          About
+        </button>
+        <button
+          id="made-btn"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 font-semibold hover:bg-indigo-400 hover:text-white dark:border-indigo-500 dark:bg-indigo-500 dark:text-white dark:hover:border-indigo-300 dark:hover:bg-indigo-300"
+        >
+          Crafted With
+        </button>
+      </div>
+      <div id="burger" class="space-y-2 sm:hidden">
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+        <div class="h-0.5 w-8 bg-indigo-400"></div>
+      </div>
+    </header>
+    <nav
+      id="menu"
+      class="collapse bg-indigo-100 pb-4 dark:bg-indigo-800 sm:hidden"
+    >
+      <div class="grid auto-cols-max justify-center gap-4">
+        <button
+          id="about-btn-media"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 font-semibold hover:bg-indigo-400 hover:text-white dark:border-indigo-500 dark:bg-indigo-500 dark:text-white dark:hover:border-indigo-300 dark:hover:bg-indigo-300"
+        >
+          About
+        </button>
+        <button
+          id="made-btn-media"
+          class="rounded-full border-2 border-indigo-400 px-3 py-1 font-semibold hover:bg-indigo-400 hover:text-white dark:border-indigo-500 dark:bg-indigo-500 dark:text-white dark:hover:border-indigo-300 dark:hover:bg-indigo-300"
+        >
+          Crafted With
+        </button>
+      </div>
+    </nav>
+    <!-- main content -->
+    <div class="flex-grow">
+      <main class="grid h-min items-start justify-center gap-4 sm:m-8 sm:p-8">
+        <div class="text-center">
+          <h2 class="text-4xl font-medium text-indigo-400">Library Tracker</h2>
+          <p class="p-4 text-sm">
+            A simple reading list tracker created as a project for The Odin
+            Project.<br />
+            Use the form below to add a book to the list.
+          </p>
+        </div>
+        <div>
+          <form
+            id="book-entry"
+            class="grid gap-4 rounded-lg p-4 shadow-lg dark:bg-slate-900"
+          >
+            <section>
+              <h3 class="text-2xl font-medium text-indigo-400">Add a book</h3>
+            </section>
+            <section class="grid gap-4 lg:flex lg:items-center lg:gap-4">
+              <div>
+                <label class="text-lg" for="title"
+                  >Title<span class="pl-2" aria-label="required">*</span></label
+                >
+                <input
+                  class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                  type="text"
+                  name="title"
+                  placeholder="Goodnight Pun Pun"
+                  id="title"
+                  required
+                />
+              </div>
+              <div>
+                <label class="text-lg" for="author"
+                  >Author<span class="pl-2" aria-label="required"
+                    >*</span
+                  ></label
+                >
+                <input
+                  class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                  type="text"
+                  name="author"
+                  placeholder="Inio Asano"
+                  id="author"
+                  required
+                />
+              </div>
+              <div>
+                <label class="text-lg" for="genre"
+                  >Genre<span class="pl-2" aria-label="required">*</span></label
+                >
+                <input
+                  class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                  type="text"
+                  name="genre"
+                  placeholder="Manga"
+                  id="genre"
+                  required
+                />
+              </div>
+              <div>
+                <label class="text-lg" for="read">Read?</label>
+                <select
+                  id="read"
+                  name="read"
+                  class="w-full rounded-md border border-indigo-100 text-slate-600 shadow-md focus:border-indigo-200 focus:ring focus:ring-indigo-200"
+                >
+                  <option value="Read">Read</option>
+                  <option value="Not Read" selected>Not Read</option>
+                </select>
+              </div>
+            </section>
+            <button
+              type="submit"
+              class="w-max rounded-full border-2 border-indigo-400 px-3 py-1 font-semibold hover:bg-indigo-400 hover:text-white dark:border-indigo-500 dark:bg-indigo-500 dark:text-white dark:hover:border-indigo-300 dark:hover:bg-indigo-300"
+            >
+              Add book
+            </button>
+          </form>
+        </div>
+        <div
+          class="overflow-hidden rounded-lg border shadow-lg dark:border-slate-800"
+        >
+          <table id="list" class="w-full text-sm text-black">
+            <thead
+              class="border-b-2 bg-indigo-400 text-white underline shadow-md dark:bg-indigo-800"
+            >
+              <tr>
+                <th
+                  scope="col"
+                  class="w-80 p-2 text-left font-semibold tracking-wide"
+                >
+                  Title
+                </th>
+                <th
+                  scope="col"
+                  class="w-40 p-2 text-left font-semibold tracking-wide"
+                >
+                  Author
+                </th>
+                <th
+                  scope="col"
+                  class="p-2 text-left font-semibold tracking-wide"
+                >
+                  Genre
+                </th>
+                <th
+                  scope="col"
+                  class="p-2 text-left font-semibold tracking-wide"
+                >
+                  Read
+                </th>
+                <th
+                  scope="col"
+                  class="p-2 text-left font-semibold tracking-wide"
+                >
+                  Remove
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-indigo-800"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <footer class="flex items-center justify-center gap-2 self-center p-4">
+      <p>Coded by Luin</p>
+      <a href="https://github.com/luinrandir" target="_blank">
+        <picture>
+          <source media="none" srcset="/assets/GitHub-Mark-Light-32px.png" />
+          <img src="/assets/GitHub-Mark-32px.png" alt="github"
+        /></picture>
+      </a>
+    </footer>
+    <!-- modals -->
+    <dialog
+      id="about-modal"
+      class="relative max-w-xs rounded-lg border p-6 shadow-xl dark:border-slate-800 dark:bg-slate-800 sm:max-w-lg"
+    >
+      <button
+        id="about-close"
+        class="absolute right-1.5 top-1.5 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300 sm:right-4 sm:top-4"
+      >
+        X
+      </button>
+      <div class="grid grid-flow-row auto-rows-min gap-2 dark:text-white">
+        <div>
+          <h3 class="text-center text-2xl font-bold sm:text-3xl">
+            Library Tracker
+          </h3>
+          <p
+            class="text-center text-xs font-light text-slate-800 dark:text-white"
+          >
+            A learning project from the curriculum of The Odin Project.
+          </p>
+        </div>
+        <p class="text-center text-sm sm:text-base">
+          Library Tracker is a simple reading list tracker. The app provides a
+          simple way to create a quick reading list! At the current moment the
+          application only uses local storage, so please look forward for the
+          implementation of a new storage feature.
+        </p>
+      </div>
+    </dialog>
+    <dialog
+      id="made-modal"
+      class="relative max-w-lg rounded-lg border p-6 shadow-xl dark:border-slate-800 dark:bg-slate-800"
+    >
+      <button
+        id="made-close"
+        class="absolute right-4 top-4 h-8 w-8 rounded-full bg-slate-200 text-xl font-bold hover:bg-slate-300"
+      >
+        X
+      </button>
+      <div class="grid grid-flow-row auto-rows-min gap-2 dark:text-white">
+        <h3 class="text-center text-3xl font-bold">Crafted With</h3>
+        <div class="flex items-center justify-center gap-4">
+          <i class="devicon-html5-plain-wordmark colored text-8xl"></i>
+          <i class="devicon-tailwindcss-plain colored text-8xl"></i>
+          <i class="devicon-typescript-plain colored text-8xl"></i>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
